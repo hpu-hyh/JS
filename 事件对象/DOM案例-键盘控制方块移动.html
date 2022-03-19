@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件-控制小方块的移动</title>
+</head>
+<style>
+    #box {
+        position: absolute;
+        /* 绝对定位能使盒子在页面上自由的移动 */
+        top: 200px;
+        left: 200px;
+        height: 100px;
+        width: 100px;
+        background-color: green;
+    }
+</style>
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById("box");
+        // 声明变量来更新盒子的定位
+        var t = 200;
+        var l = 200;
+        // 监听键盘事件
+        document.onkeydown = function(e) {
+            switch(e.keyCode){
+                case 37:
+                    l-=10;
+                    break;
+                case 38:
+                    t-=10;
+                    break;
+                case 39:
+                    l+=10;
+                    break;
+                case 40:
+                    t+=10;
+                    break;
+            }
+
+            // 更改样式
+            oBox.style.left = l + "px";
+            oBox.style.top = t + "px";
+        }
+    </script>
+</body>
+</html>

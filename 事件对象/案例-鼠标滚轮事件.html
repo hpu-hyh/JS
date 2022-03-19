@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 200px;
+        height: 200px;
+        background-color: #333;
+    }
+    body{
+        height: 2000px;
+    }
+</style>
+
+<body>
+    <!-- 制作鼠标滚轮事件：当鼠标在盒子中向下滚动时，数字加1，向上滚动时，数字减1 -->
+    <div id="box"></div>
+    <h1 id="info">0</h1>
+
+    <script>
+        var oBox = document.getElementById("box");
+        var oInfo = document.getElementById("info");
+
+        // 声明一个全局变量，用来更新info中显示的数字
+        var a =0;
+
+        // 给box盒子添加滚轮事件监听
+        oBox.onmousewheel = function(e) {
+            // 阻止默认事件：当用户在盒子中滚动滚轮，此时不会引发页面的滚动条的滚动
+            e.preventDefault();
+            if (e.deltaY > 0) {
+                a--;
+            } else {
+                a++;
+            }
+            oInfo.innerText = a;
+        }
+    </script>
+</body>
+
+</html>
