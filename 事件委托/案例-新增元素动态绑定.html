@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 新增元素必须分别添加事件监听，不能自动获得 -->
+    <!-- 大量的事件监听，大量的处理函数会消耗大量内存。 -->
+</head>
+<body>
+    <!-- 页面上有一个无序列表<ul>,它内部没有<li>元素，请制作一个按钮
+        点击这个按钮就能增加一个<li>元素。并且要求每个增加的<li>元素
+        也要有点击事件监听，实现点击那个元素，那个元素变红的效果。 -->
+        <button id="btn">惦记我增加新的li元素</button>
+        <ul id="list"></ul>
+
+
+        <script>
+            var oBtn = document.getElementById("btn");
+            var oList = document.getElementById("list");
+
+            // 添加按钮点击事件
+            oBtn.onclick = function(){
+                // 创建一个新的li列表项，孤儿节点
+                var oLi = document.createElement("li");
+                oLi.innerHTML = "我是列表项";
+                // 上树
+                oList.append(oLi);
+                // 给新创建的li元素添加点击事件监听
+                oLi.onclick = function(){
+                    this.style.color = "red";
+                }
+            }
+        </script>
+</body>
+</html>
