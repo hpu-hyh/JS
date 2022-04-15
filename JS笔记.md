@@ -11,7 +11,7 @@ function test () {
     var message = 'hi';//局部变量
 }
 test();
-console.log (message);//出错！
+console.log (message);//报错
 ```
 
 在函数中可以省略var从而声明一个全局变量；
